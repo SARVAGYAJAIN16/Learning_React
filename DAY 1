@@ -1,0 +1,13 @@
+// Learning React......
+-->
+ -> Download react  and run the react....
+ -> Doing react in Vite.
+ -> run Hello sarvagya ! in react (library of javascript).
+ -> code: -----  in App.jsx------------------------------------------------
+     export const App= () => {
+    return <h1>Hello sarvagya!</h1>
+}
+---------------------------------------------------------------------------
+
+Understand about Folder structure and naming conventions in react .........
+
