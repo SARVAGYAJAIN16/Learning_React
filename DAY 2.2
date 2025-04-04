@@ -1,0 +1,37 @@
+Understand about Components in react.
+---->
+
+code:-----------------------------------------
+// creating a netflix card 
+export const App = () => {
+   // error coming to remove error we use div inside return 
+   return (
+      <div>
+         {/* must  be self closed  */}
+        < NetflixSeries />    
+        < NetflixSeries />
+        < NetflixSeries />
+        < NetflixSeries />
+        < NetflixSeries />
+      </div>
+    );
+};
+
+// making component (can we use multiple time)
+const NetflixSeries = () => { // it is not function it is component because it always start from capital letter.(pascal case)
+   return (
+     <div>
+        <div> 
+            <img src="642647.jpg" alt="img_poster" 
+            width="20%" height ="20%"></img>
+         </div>
+     <h2>Name: Queen of Tears</h2>
+     <h3> Rating: 8.2</h3>
+      <p>"Queen of Tears" follows Hong Hae-in (Kim Ji-won), a chaebol heiress,
+       and Baek Hyun-woo (Kim Soo-hyun), the son of farmers, as their loveless
+       marriage faces a crisis, leading them to discover Hae-in's terminal illness
+       and rekindle their romance amidst chaos and betrayal. </p>
+
+     </div>
+   );
+};
