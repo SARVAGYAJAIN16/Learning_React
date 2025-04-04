@@ -1,0 +1,94 @@
+Explore about React fragments , Dynamic value in JSX: using Injecting JavaScript into HTML, expression ,function.
+------> 
+React Fragments: Remove unwanted Nodes & Speed Up Rendering…
+
+Problem we face is that when we are making cards so there is a parent div is coming (extra)
+And we don’t want that parent div. so we are using React.Fragment to remove that div.
+
+        < React.Fragments> </React.Fragment>
+So we write this so vs code saying that React is not define so import it .
+Shortcut key to import automatically  ctrl + space (select react)… so import file text will come.
+Code:--------------
+// import React from "react";
+
+export const App = () => {
+   // error coming to remove error we use div inside return 
+   
+   return (
+      //   <React.Fragment>  
+      // or we can write <> like this also.
+        <>
+        < NetflixSeries />    
+        < NetflixSeries />
+        < NetflixSeries />
+        < NetflixSeries />
+        < NetflixSeries />
+        </>
+      //   </React.Fragment>
+   
+    );
+};
+
+                      Dynamic Values in JSX: Injecting JavaScript into HTML
+
+Using curly bracket  we can write javascript inside html also..
+1 Variables :- You can embed any javascript variable within JSX by enclosing it in curly braces. The value of the variable will be inserted into the DOM at the respective location.
+
+
+Code:---
+const NetflixSeries = () => { 
+    const name="Queens of tear";
+    const rating = 8.2;
+   return (
+     <div>
+        <div> 
+            <img src="642647.jpg" alt="img_poster" 
+            width="20%" height ="20%"></img>
+         </div>
+     <h2>Name: {name} </h2>
+     <h3>Rating: {rating} </h3>
+      <p>"Queen of Tears" follows Hong Hae-in (Kim Ji-won), a chaebol heiress,
+       and Baek Hyun-woo (Kim Soo-hyun), the son of farmers, as their loveless
+       marriage faces a crisis, leading them to discover Hae-in's terminal illness
+       and rekindle their romance amidst chaos and betrayal. </p>
+
+     </div>
+   );
+};
+
+                                             Dynamic values using Expressions
+
+2  Expressions : JSX allow you to write javascript inside curly braces. This includes operations , function calls , and other javascript expressions that produce a value.
+
+<h3>Rating: {5+2} </h3>
+
+                                             Dynamic values using Function Call
+
+3 . Function call  : functions  , especially those that return JSX , can be invoked directly within your JSX.
+code:-------------------
+const NetflixSeries = () => { 
+    const name="Queens of tear";
+    const rating = 8.2;
+    const returnGenre = () => {
+        const genre = "science";
+        return genre;
+    };
+   return (
+     <div>
+        <div> 
+            <img src="642647.jpg" alt="img_poster" 
+            width="20%" height ="20%"></img>
+         </div>
+     <h2>Name: {name} </h2>
+     <h3>Rating: {5+2} </h3>
+      <p>"Queen of Tears" follows Hong Hae-in (Kim Ji-won), a chaebol heiress,
+       and Baek Hyun-woo (Kim Soo-hyun), the son of farmers, as their loveless
+       marriage faces a crisis, leading them to discover Hae-in's terminal illness
+       and rekindle their romance amidst chaos and betrayal. </p>
+
+      <p> Genre: {returnGenre()} </p> {/* calling function*/}
+     </div>
+   );
+};
+
+
