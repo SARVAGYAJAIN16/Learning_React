@@ -1,0 +1,28 @@
+Understand about JSX(javascript xml) in react.
+---->
+React is  all about your component and component is a javascript function which return jSX.
+to do  rules: -
+	Each JSX expression must have one parent element , which means if you try to return multiple element,
+ react will throw an error.
+	Every JSX  tag need to be closed . you can use self-closing tags for element that don’t have children , 
+ eg  <img src = ”url” >.
+
+code:--------------------------------------------------------------------------------
+// creating a netflix card  // we will css part later...
+export const App = () => {
+   // error coming to remove error we use div inside return 
+   return (
+      <div>
+         <div> 
+            <img src="" alt="img_poster" 
+            width="40%" height ="40%"></img>
+         </div>
+     <h2>Name: Queen of Tears</h2>
+     <h3> Rating: 8.2</h3>
+      <p>"Queen of Tears" follows Hong Hae-in (Kim Ji-won), a chaebol heiress,
+       and Baek Hyun-woo (Kim Soo-hyun), the son of farmers, as their loveless
+       marriage faces a crisis, leading them to discover Hae-in's terminal illness
+       and rekindle their romance amidst chaos and betrayal. </p>
+      </div>
+    );
+};
