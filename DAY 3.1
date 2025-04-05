@@ -1,0 +1,73 @@
+Understand about React Conditional rendering in JSX ..
+---->
+code:-----------------------------------------------------------------------
+// import React from "react";
+
+export const App = () => {
+   
+   return (
+        <>
+        < NetflixSeries />    
+        < NetflixSeries />
+        < NetflixSeries />
+        < NetflixSeries />
+        < NetflixSeries />
+        </>
+    );
+};
+
+const NetflixSeries = () => { 
+    const name="Queens of tear";
+    const rating = 8.2;
+    let age = 19;
+    let canWatch = "Not Available";
+    if(age >= 18) canWatch= "Watch Now";
+    const summary =
+    "Queen of Tears follows Hong Hae-in (Kim Ji-won), a chaebol heiress and Baek Hyun-woo (Kim Soo-hyun), the son of farmers, as their loveless marriage faces
+    a crisis, leading them to discover Hae-in's terminal illness and rekindle their romance amidst chaos and betrayal.";
+    const returnGenre = () => {
+        const genre = "science";
+        return genre;
+    };
+    // 4 way  with function and can pass parameter in dynamic....
+    const returncanwatch =() => {
+      if(age>=18) return " Watch now";
+      return " Not Available";
+    }
+    // 1 this violates DRY (do not repeat yourself) 
+    // if (age < 18)
+    // {
+    //   return(
+    //     <div>
+    //     <div> 
+    //     <img src="642647.jpg" alt="img_poster" 
+    //      width="20%" height ="20%"></img>
+    //     </div>
+    //    <h2>Name: {name} </h2>
+    //    <h3>Rating: {5+2} </h3>
+    //    <p>Summary:{summary}</p>
+    //    <p> Genre: {returnGenre()} </p> {/* calling function*/}
+    //    <button> Not Available</button>
+    //    </div>
+    //     );
+    // }
+// else it will come to this part. (for way 1)
+   return (
+     <div>
+        <div> 
+            <img src="642647.jpg" alt="img_poster" 
+            width="20%" height ="20%"></img>
+         </div>
+     <h2>Name: {name} </h2>
+     <h3>Rating: {5+2} </h3>
+     <p>Summary:{summary}</p>
+     <p> Genre: {returnGenre()} </p> {/* calling function*/}
+     {/* 2 way with use of ternary operator */}
+     {/* <button> {age >= 18 ? "Watch Now" : "Not Available"}</button> */}
+     {/* 3 Way */}
+     {/* <button>{canWatch}</button> */}
+     {/* 4 way */}
+     <button>{returncanwatch()}</button>
+     </div>
+   );
+};
