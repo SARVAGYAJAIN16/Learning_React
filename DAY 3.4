@@ -1,0 +1,59 @@
+Understand about props in react.
+---> code:------------------
+Netflixseries.jsx
+import seriesData from "../api/seriesData.json";
+    const NetflixSeries = () => { 
+    return (
+      <ul>
+        {
+          seriesData.map((curelem) => {
+            //    -> curelem is PROPS 
+          <SeriesCard key ={curelem.id} curelem={curelem} /> // two props we have passed. 
+          })}
+     </ul>
+   );
+};
+export default NetflixSeries;
+
+
+   SeriesCard.jsx
+
+export const SeriesCard = (props) => {
+  return(
+        <li>
+            <div> 
+              {/* taking dyamaic data */}
+                <img src= {props.curelem.img_url} 
+                alt={props.curelem.name} 
+                width="20%"
+                height ="20%"></img>
+             </div>
+         <h2>Name: {props.curelem.name} </h2>
+         <h3>Rating: {props.curelem.rating} </h3>
+         <p>Summary:{props.curelem.description}</p>
+         <p> Genre: {props.curelem.genre}</p>
+         <p>Cast: {props.curelem.cast}</p>
+         <a href = {props.curelem.watch_url} target = "_blank">
+         <button>Watch Now</button>
+         </a>
+         </li>
+        );
+};
+
+            App. jsx
+import NetflixSeries from "./components/NetflixSeries";
+export const App = () => {
+   return (
+    <>
+        < NetflixSeries />    
+    </>    
+    );
+};
+
+
+
+
+
+ 
+
+
