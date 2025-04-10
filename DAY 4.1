@@ -1,0 +1,65 @@
+Understand about the Destructuring in react.
+ 
+--------------------------------------- // SeriesCard.jsx (file)-----------------------------------
+ export const SeriesCard = ({data}) => {
+  //console.log(props);
+  const { id, img_url, name, rating, description, cast, genre, watch_url} =
+  data;
+  // destructuring
+ // const {data} = props; // props ka andar we get data and key.
+  // we can more destructuring...
+  return(
+        // <li key = {props}>
+           <li>
+            <div> 
+              {/* taking dyamaic data */}
+                <img src= {img_url} alt={name} width="40%" height ="40%"/>
+             </div>
+         {/* <h2>Name: {props.curelem.name} </h2>
+         <h3>Rating: {props.curelem.rating} </h3>
+         <p>Summary:{props.curelem.description}</p>
+         <p> Genre: {props.curelem.genre}</p>
+         <p>Cast: {props.curelem.cast}</p>
+         <a href = {props.curelem.watch_url} target = "_blank">
+         <button>Watch Now</button> */}
+        
+         {/* here in li keys we passes props so that we have not to write props again and 
+          data (above) accepting the props .. */}
+         {/* <h2>Name: {data.name} </h2>
+         <h3>Rating: {data.rating} </h3>
+         <p>Summary:{data.description}</p>
+         <p> Genre: {data.genre}</p>
+         <p>Cast:{ data.cast}</p>
+         <a href = {data.watch_url} target = "_blank">
+         <button>Watch Now</button>
+         </a>
+         </li> */}
+
+{/* more destructuring */}
+<h2>Name: {name} </h2>
+<h3>Rating: {rating} </h3>
+<p>Summary:{description}</p>
+<p> Genre: {genre}</p>
+<p>Cast: {cast}</p>
+<a href = {watch_url} target = "_blank">
+<button>Watch Now</button>
+</a>
+</li>
+);
+};
+----------------------------------------------------------------------------------------------------
+-----------------------------------------// NetflixSeries.jsx (file)---------------------------------
+import seriesData from "../api/seriesData.json";
+import { SeriesCard } from "./SeriesCard";
+    const NetflixSeries = () => { 
+    return (
+      <ul>
+        {seriesData.map((curelem) => (
+            //    -> curelem is PROPS 
+          <SeriesCard key = {curelem.id} data={curelem} /> // two props we have passed. 
+          ))}
+     </ul>
+   );
+};
+export default NetflixSeries;
+------------------------------------------------------------------------
