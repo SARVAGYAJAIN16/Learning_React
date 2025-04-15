@@ -1,0 +1,123 @@
+part -2 of Gsap library. 
+understand about GsapFromTo and GsapTimeline...
+--->
+3-> GsapFromTo
+•	The gsap.fromTo() method is used to animate elements from a new state to a new state.
+•	The gsap.fromTo() method is similar to the gsap.from() and gsap.to() methods, but the difference is that the gsap.fromTo() method animates 
+elements from a new state to a new state, while the gsap.from() method animates elements from a new state to their current state, and the gsap.to() method
+animates elements from their current state to a new state.
+
+gsapfromTo() : -
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+const GsapFromTo = () => {
+  // TODO: Implement the gsap.fromTo() method
+  useGSAP(() => {
+    gsap.fromTo('#red-box',{
+           x:0,
+           rotation:0,
+           borderRadius:'0%',
+    },
+    {
+         x:250,  
+         repeat: -1,
+         yoyo: true,
+         borderRadius: '100%',
+         rotation:360,
+         duration: 2,
+         ease:'bounce.out',
+    })      // from rectangle to circle 
+  },[]);
+
+
+-----------------------------------------------
+GsapTimeline---> 
+The gsap.timeline() method is used to create a timeline instance that can be used to manage multiple animations.
+
+The gsap.timeline() method is similar to the gsap.to(), gsap.from(), and gsap.fromTo() methods, but the difference is that the gsap.timeline() method
+is used to create a timeline instance that can be used to manage multiple animations, while the gsap.to(), gsap.from(), and gsap.fromTo() methods are used 
+to animate elements from their current state to a new state, from a new state to their current state, and from a new state to a new state, respectively.
+
+Code:--
+import {useGSAP} from "@gsap/react";
+import gsap from "gsap";
+
+const GsapTimeline = () => {
+  // TODO: Implement the gsap timeline
+ const timeline = gsap.timeline({
+  repeat: -1,
+  repeatDelay: 1,
+  yoyo: true,
+ });
+useGSAP(() => {
+   timeline.to('#yellow-box',{
+    x:250,
+    rotation: 360,
+    borderRadius: '100%',
+    duration: 2,
+    ease: 'back.inOut',
+   })
+
+   timeline.to('#yellow-box',{
+     x:500,
+     scale:1, // animating the element back to its original size.
+     rotation: 360, 
+     borderRadius: '8px',
+     duration:2,
+     ease:'back.inOut',
+   })
+},[]);
+
+  return (
+    <main>
+      <h1>GsapTimeline</h1>
+
+      <p className="mt-5 text-gray-500">
+        The <code>gsap.timeline()</code> method is used to create a timeline
+        instance that can be used to manage multiple animations.
+      </p>
+
+      <p className="mt-5 text-gray-500">
+        The <code>gsap.timeline()</code> method is similar to the{" "}
+        <code>gsap.to()</code>, <code>gsap.from()</code>, and{" "}
+        <code>gsap.fromTo()</code> methods, but the difference is that the{" "}
+        <code>gsap.timeline()</code> method is used to create a timeline
+        instance that can be used to manage multiple animations, while the{" "}
+        <code>gsap.to()</code>, <code>gsap.from()</code>, and{" "}
+        <code>gsap.fromTo()</code> methods are used to animate elements from
+        their current state to a new state, from a new state to their current
+        state, and from a new state to a new state, respectively.
+      </p>
+
+      <p className="mt-5 text-gray-500">
+        Read more about the{" "}
+        <a
+          href="https://greensock.com/docs/v3/GSAP/gsap.timeline()"
+          target="_blank"
+          rel="noreferrer noopener nofollow"
+        >
+          gsap.timeline()
+        </a>{" "}
+        method.
+      </p>
+
+      <div className="mt-20 space-y-10">
+        <button onClick={() => {
+           if(timeline.paused()) {
+            // we will trigger 
+            timeline.play();
+           }
+           else{
+            timeline.pause();
+           }
+        }}>Play/Pause</button>
+
+        <div id="yellow-box" 
+        className="w-20 h-20 bg-yellow-500 rounded-lg" />
+      </div>
+    </main>
+  );
+};
+
+export default GsapTimeline
+
