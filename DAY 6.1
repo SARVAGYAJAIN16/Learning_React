@@ -1,0 +1,45 @@
+Learn about use effect and hooks in react
+--->
+code:----------------------------------------------------------App.jsx file----------------------------------------------------------------------
+import { useEffect, useState } from 'react'
+
+const Card = ({ title }) => {
+  -[0]
+   // making new state because to track the number of clicks we will made .
+ const [Count,setCount] = useState(0);
+
+ const [hasLiked, setHasLiked] = useState();
+
+ useEffect(() => {
+   console.log(`${title} has been liked: ${hasLiked}`);
+}, [hasLiked]);
+
+
+   return( 
+      <div className="card" onClick={() => setCount(Count + 1)}>
+      <h2> {title} <br/> {Count || null} </h2>
+      {/* implement button to like us the movie */}
+      <button onClick={() => setHasLiked(!hasLiked)}>  {/* doing liked and like both by this */}
+         { hasLiked ? 'Liked': 'Disliked' }  {/* dyamaic it become we like (when we click it become liked) but when re load it will become again not persistent across browser reload  */}
+      </button>
+      </div>
+   )    
+}
+
+   const App = () => {
+      
+      return (
+        <div className = "card-container">
+        {/* <h2> Functional Arrow Components </h2> */}
+         
+         {/* calling card  components */}
+        {/* <Card  title="Stars Wars rating={5} isCool = {true} actors = {[{name: 'Actors'}]} "/> */}
+        <Card  title="Stars Wars" rating={5} isCool = {true} />
+        <Card  title="Avatar"/>
+        <Card  title="The Lion King"/>
+        {/*  here we are loading so nothing changes in screen  */}
+        </div>
+      )
+   }
+
+export default App
