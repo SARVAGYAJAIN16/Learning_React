@@ -1,0 +1,57 @@
+// App.jsx file
+
+code:--------------------------------------
+import React from 'react'
+// importing search component 
+import Search from './components/Search'
+import {useState} from 'react'
+
+
+const App = () => {
+  const[searchTerm, setSearchTerm] = useState();
+
+  return (
+   <main>
+    <div className= "pattern"/>
+
+
+      <div className="wrapper">
+         <header>
+          <img src="./hero.png" alt="Hero Banner"></img>
+            <h1>Find<span className="text-gradient"> Movies</span> You'll Enjoy without the Hassle</h1>
+         </header>
+
+       {/* adding Search */}
+       {/* Start from here */}
+       <Search searchTerm = {searchTerm} setSearchTerm={setSearchTerm} />
+       {/* when this above component call  so this function will be call (these are the state field we have passed as props ) */}
+      </div>
+    </main>
+  )
+}
+export default App
+
+// building search component .....
+code:-------------------------
+
+import React from 'react'
+
+const Search = ({ searchTerm, setSearchTerm }) => {
+  return (
+    <div className="search">
+        <div>
+            <img src="search.svg" alt="search" />
+
+            <input
+             type="text"
+             placeholder="Search through thousands of movies"
+             value={searchTerm}
+             onChange={(event) => setSearchTerm(event.target.value)}
+
+            ></input>
+        </div>
+    </div>
+  )
+}
+
+export default Search
